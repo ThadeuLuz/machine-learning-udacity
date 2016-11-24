@@ -25,7 +25,20 @@ Data types:
 
 Classification Metrics
 
-
 ## Managing Error and Complexiy
+
+This is very helpful: http://scott.fortmann-roe.com/docs/BiasVariance.html
+
+Error due to Bias: 
+- Means the model (line or boundary) is too simple
+- Means _underfitting_: model is not complex enough
+- Low scores for test and training data
+
+Error due to Variance
+- Means the model is too complex
+- Means _overfitting_: model is too complex
+- High scores for training data, but test data will be lower
+
+![](http://pingax.com/wp-content/uploads/2014/05/underfitting-overfitting.png)
 
 ## Model Evaluation and Validation Project
