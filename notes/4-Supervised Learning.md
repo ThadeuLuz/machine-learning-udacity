@@ -77,6 +77,20 @@ ID3 is a top down learning algorithm that maximizes for entropy (uncertainty) to
 
 ## Artificial Neural Networks
 
+ANN are made up of perceptrons. They look like this:
+
+![Perceptron](https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/ArtificialNeuronModel_english.png/600px-ArtificialNeuronModel_english.png)
+
+`W` are the weights multiplying inputs. `θ` is the treshold for the output.
+
+There are two different rules to figure out weights from examples: 
+
+### Perceptron Rule 
+Perceptron Rule  makes use of thresholded output. First it gets rid of the treshold (or better said, it always uses a threshold of 0) by modifying the weights account for it. To train the weights based on examples it basically loops throught the weights and compares the acual value to the value of the examples, then nudges the weight to the right direction by multiplying it to a *learning rate* variable. 
+
+### Gradient descent/Delta rule 
+Gradient descent makes use of unthresholded output. It is more robust to addres non linear-separability. It looks a lot like the perceptron rule, but instead of thesholding to figure out only the direction a weight should move, it moves by a factor of the error.
+
 ## Support Vector Machines
 
 ## Nonparametric Models
