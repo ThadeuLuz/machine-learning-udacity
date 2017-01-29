@@ -91,6 +91,10 @@ Perceptron Rule  makes use of thresholded output. First it gets rid of the tresh
 ### Gradient descent/Delta rule 
 Gradient descent makes use of unthresholded output. It is more robust to addres non linear-separability. It looks a lot like the perceptron rule, but instead of thesholding to figure out only the direction a weight should move, it moves by a factor of the error.
 
+Usually the initial weights are small randomized values, to start simple and avoid getting stuck at the same local minimum multiple times when training different models.
+
+[This series is awesome](https://www.youtube.com/watch?v=bxe2T-V8XRs)
+
 ## Support Vector Machines
 
 ## Nonparametric Models
