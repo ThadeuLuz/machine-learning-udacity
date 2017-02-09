@@ -97,10 +97,24 @@ Usually the initial weights are small randomized values, to start simple and avo
 
 ## Support Vector Machines
 
+Support vector machines is an algorithm that aims to find a hyperplane that separates the different labels of data and to maximize the distance between them. Support vectors are the closest points that interfere with the hyperplane. It may use a kernel trick, which will create a new similarity metric that can help to separate the data in other dimensions.
+
 ## Nonparametric Models
+
+Instance Based learning are a different class of learning algorithms. Instead of deriving a function and discarding the data, it keeps the data and uses it directly. The term 'lazy-learners' (as opposed to 'eager-learners') is used to describe these algorythm that shift computation from the training step to the actual query.
+
+### NN
+Nearest neightbors algorythms is the simplest non-parametric model. You just store the data point in a database and query for 1 (1-NN) or K (K-NN) nearest points and make your guess based on their labels. If you have more than one answer, you can average (regression) or vote (classification) on the correct label. Their vote can be weightd by the distance. Distance can be euclidian, manhattan or whatever you decide.
 
 ## Bayesian Methods
 
+Bayes Rule:
+
+![](http://www.gaussianwaves.com/gaussianwaves/wp-content/uploads/2013/10/Bayes_theorem_1.png)
+
+
 ## Ensemble of Learners
+
+Bagging is just generating regression polynomials from different subsets of data (randomly picked) and averaging out the results. It's remarkable that the results seem to do better than deriving an equation from the entire set (possibly because it avoids overfitting).
 
 ## Supervised Learning Project
