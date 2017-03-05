@@ -68,3 +68,11 @@ Working Definitions
 - most variance/most information => first PC. Second-most variance (without overlapping w first PC) => second PC
 - Max number of PCs is number of features (which will work but have no benefits)
 
+When to use PCA
+
+- Latent featues driving the patterns (big shots at Enron)
+- Dimensionality reduction
+  - Visualize high dimensional data
+  - reduce noise
+  - Make other algorithms (regression, classification) work better b/c fewer inputs
+
