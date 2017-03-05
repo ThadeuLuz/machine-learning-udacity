@@ -74,5 +74,5 @@ When to use PCA
 - Dimensionality reduction
   - Visualize high dimensional data
   - reduce noise
-  - Make other algorithms (regression, classification) work better b/c fewer inputs
+  - Make other algorithms (regression, classification) work better b/c fewer inputs (eigenfaces)
 
