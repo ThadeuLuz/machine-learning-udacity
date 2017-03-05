@@ -28,3 +28,20 @@ There are usually two approaches to solve the problem:
 - Filtering: Where you run the features on some sort of algorythm that maximizes a criteria, and then hands the features to the learning algorythm. The learning algorythm is trained once, after the features are selected.
 
 - Wrapping:  Where the step of selecting the best features uses the learning algorythm itself to determine which features are the best. The learning algorythm is trained multiple times, as a step in choosing which features are the best ones.
+
+Bayes Optimal Classifier (or B.O.C.) is the one that takes the weighted average of all hypotheses based on the probability of being the correct hypothesis given the data. The B.O.C. is the best model that you can possibly have on average. It is 'possible' to find an algorythm that computes the B.O.C., except that requires you to look at all possibly infinite number of hypotheses.  
+
+#### The formal definition of Relevance is
+
+- Xi is strongly relevant if it degrades the B.O.C. (that means that strongly relevant features have information that are not on any other features)
+
+- Xi is weakly relevant if it is 
+  - not strongly relevant and
+  - if added to a subset of features, it improves the B.O.C.
+  - (that means that the information on the feature is on other features but may be relevant if used in conjunction with a subset of features)
+
+- Xi is irrelevant if it is not weakly or strongly relevant
+
+#### The definition of Usefulness
+
+Relevance is about information. Usefulness is about the effect on error. 
