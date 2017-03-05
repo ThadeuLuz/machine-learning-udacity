@@ -25,11 +25,11 @@ Feature selection is the process of choosing some of the features that will help
 
 There are usually two approaches to solve the problem:
 
-- Filtering: Where you run the features on some sort of algorythm that maximizes a criteria, and then hands the features to the learning algorythm. The learning algorythm is trained once, after the features are selected.
+- Filtering: Where you run the features on some sort of algorithm that maximizes a criteria, and then hands the features to the learning algorithm. The learning algorithm is trained once, after the features are selected.
 
-- Wrapping:  Where the step of selecting the best features uses the learning algorythm itself to determine which features are the best. The learning algorythm is trained multiple times, as a step in choosing which features are the best ones.
+- Wrapping:  Where the step of selecting the best features uses the learning algorithm itself to determine which features are the best. The learning algorithm is trained multiple times, as a step in choosing which features are the best ones.
 
-Bayes Optimal Classifier (or B.O.C.) is the one that takes the weighted average of all hypotheses based on the probability of being the correct hypothesis given the data. The B.O.C. is the best model that you can possibly have on average. It is 'possible' to find an algorythm that computes the B.O.C., except that requires you to look at all possibly infinite number of hypotheses.  
+Bayes Optimal Classifier (or B.O.C.) is the one that takes the weighted average of all hypotheses based on the probability of being the correct hypothesis given the data. The B.O.C. is the best model that you can possibly have on average. It is 'possible' to find an algorithm that computes the B.O.C., except that requires you to look at all possibly infinite number of hypotheses.  
 
 #### The formal definition of Relevance is
 

@@ -101,10 +101,10 @@ Support vector machines is an algorithm that aims to find a hyperplane that sepa
 
 ## Nonparametric Models
 
-Instance Based learning are a different class of learning algorithms. Instead of deriving a function and discarding the data, it keeps the data and uses it directly. The term 'lazy-learners' (as opposed to 'eager-learners') is used to describe these algorythm that shift computation from the training step to the actual query.
+Instance Based learning are a different class of learning algorithms. Instead of deriving a function and discarding the data, it keeps the data and uses it directly. The term 'lazy-learners' (as opposed to 'eager-learners') is used to describe these algorithm that shift computation from the training step to the actual query.
 
 ### NN
-Nearest neightbors algorythms is the simplest non-parametric model. You just store the data point in a database and query for 1 (1-NN) or K (K-NN) nearest points and make your guess based on their labels. If you have more than one answer, you can average (regression) or vote (classification) on the correct label. Their vote can be weightd by the distance. Distance can be euclidian, manhattan or whatever you decide.
+Nearest neightbors algorithms is the simplest non-parametric model. You just store the data point in a database and query for 1 (1-NN) or K (K-NN) nearest points and make your guess based on their labels. If you have more than one answer, you can average (regression) or vote (classification) on the correct label. Their vote can be weightd by the distance. Distance can be euclidian, manhattan or whatever you decide.
 
 ## Bayesian Methods
 
