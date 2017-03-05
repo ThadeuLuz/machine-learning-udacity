@@ -45,3 +45,26 @@ Bayes Optimal Classifier (or B.O.C.) is the one that takes the weighted average 
 #### The definition of Usefulness
 
 Relevance is about information. Usefulness is about the effect on error. 
+
+## Dimesionality Reduction
+
+### PCA (Principal Component Analysis)
+
+Measurable features are the ones you can just look up and measure on the real world, like square footage (of a house), number of rooms or neighborhood safety. Latent features are the ones that you can't measure directly but 'drive the phenomenon that you are measuring behind the scenes'.
+
+Variance can be defined as
+
+- ~~the willingness of an algorithm to learn~~ (ignore that definition for now) 
+- technical term in statistics - roughtly the "spread" of a data distribution (similar to standard deviation)
+
+The **principal component** of a dataset is the direction that has the largest variance.
+
+Working Definitions
+
+- PCA is a systematized way to transform input features into principal components
+- Use Principal components as new features
+- PCs are directions in data that maximize variance (minimizing information loss) when you project/compress down onto them
+- The more variance of data along a PC, the higher that PC is ranked.
+- most variance/most information => first PC. Second-most variance (without overlapping w first PC) => second PC
+- Max number of PCs is number of features (which will work but have no benefits)
+
