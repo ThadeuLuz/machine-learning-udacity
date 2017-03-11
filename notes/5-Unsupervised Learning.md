@@ -1,5 +1,9 @@
 ## Clustering
 
+- Scale-Invariance: If we transform the data so that everything is stretched out equally in all directions, then the clustering result shouldn’t change.
+- Consistency: If we stretch the data so that the distances between clusters increases and/or the distances within clusters decreases, then the clustering shouldn’t change.
+- Richness: The clustering function should theoretically be able to produce any arbitrary partition/clustering of datapoints (in the absence of knowing the pairwise distance between any two points)
+
 ## Feature Engineering
 
 ### Feature Scaling
@@ -76,3 +80,15 @@ When to use PCA
   - reduce noise
   - Make other algorithms (regression, classification) work better b/c fewer inputs (eigenfaces)
 
+
+### Dimensionality Reduction
+
+Ad Hoc problem or the "Google Problem" is a ML problem where you have no idea which set of features you are going to get.
+
+Words are good indicators of meaning, but there are problems like
+  - Polysemy: One word means multiple things. Can cause false positives (Googling "Apple" meaning the company but will bring results about the fruit)
+  - Sinonomy: Multiple words mean the same thing. Can cause false negatives (Googling "car" will not bring results with the word "automobile").
+
+Indepent Component Analysis is kind of like PCA, but instead of finding the correlation maximizing variance, it will find independence.
+
+The blind source separation problem and the cocktail party problem is one where we try to determine hidden variables from the observables we have.
