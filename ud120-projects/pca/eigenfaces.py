@@ -46,12 +46,12 @@ np.random.seed(42)
 # for machine learning we use the data directly (as relative pixel
 # position info is ignored by this model)
 X = lfw_people.data
-n_features = X.shape[1]
+n_features = X.shape[1]  # 1850 pixels per face
 
 # the label to predict is the id of the person
-y = lfw_people.target
-target_names = lfw_people.target_names
-n_classes = target_names.shape[0]
+y = lfw_people.target  # number of labels [5, 6, 3, ...]
+target_names = lfw_people.target_names  # ['Ariel Sharon' 'Colin Powell', ...]
+n_classes = target_names.shape[0]  # Number of names (7)
 
 print "Total dataset size:"
 print "n_samples: %d" % n_samples
@@ -61,7 +61,8 @@ print "n_classes: %d" % n_classes
 
 ###############################################################################
 # Split into a training and testing set
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.25, random_state=42)
 
 ###############################################################################
 # Compute a PCA (eigenfaces) on the face dataset (treated as unlabeled
@@ -88,9 +89,9 @@ print "done in %0.3fs" % (time() - t0)
 print "Fitting the classifier to the training set"
 t0 = time()
 param_grid = {
-         'C': [1e3, 5e3, 1e4, 5e4, 1e5],
-          'gamma': [0.0001, 0.0005, 0.001, 0.005, 0.01, 0.1],
-          }
+    'C': [1e3, 5e3, 1e4, 5e4, 1e5],
+    'gamma': [0.0001, 0.0005, 0.001, 0.005, 0.01, 0.1],
+}
 # for sklearn version 0.16 or prior, the class_weight parameter value is 'auto'
 clf = GridSearchCV(SVC(kernel='rbf', class_weight='balanced'), param_grid)
 clf = clf.fit(X_train_pca, y_train)
@@ -134,7 +135,7 @@ def title(y_pred, y_test, target_names, i):
     return 'predicted: %s\ntrue:      %s' % (pred_name, true_name)
 
 prediction_titles = [title(y_pred, y_test, target_names, i)
-                         for i in range(y_pred.shape[0])]
+                     for i in range(y_pred.shape[0])]
 
 plot_gallery(X_test, prediction_titles, h, w)
 
