@@ -1,3 +1,4 @@
 # The original Udacity ML repo.
 machine-learning
 .vscode
+*.pyc
