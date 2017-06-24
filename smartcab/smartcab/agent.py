@@ -21,6 +21,8 @@ class LearningAgent(Agent):
         self.epsilon = epsilon   # Random exploration factor
         self.alpha = alpha       # Learning factor
 
+        self.trial = 1
+
         ###########
         ## DONE  ##
         ###########
@@ -38,13 +40,22 @@ class LearningAgent(Agent):
         ## DONE  ##
         ###########
         # Update epsilon using a decay function of your choice
-        self.epsilon = self.epsilon - 0.05
+
+        # The decay rate for this is too steep
+        # self.epsilon = 1. / (self.trial**2)
+
+        # This kinda works
+        # self.epsilon = self.epsilon - 0.005
+
+        self.epsilon = 0.99**self.trial
+
         # Update additional class parameters as needed
         # If 'testing' is True, set epsilon and alpha to 0
         if testing:
             self.epsilon = 0
             self.alpha = 0
 
+        self.trial = self.trial + 1
         return None
 
     def build_state(self):
@@ -192,7 +203,7 @@ def run():
     #   learning   - set to True to force the driving agent to use Q-learning
     #    * epsilon - continuous value for the exploration factor, default is 1
     #    * alpha   - continuous value for the learning rate, default is 0.5
-    agent = env.create_agent(LearningAgent, learning=True)
+    agent = env.create_agent(LearningAgent, learning=True, alpha=0.5)
 
     ##############
     # Follow the driving agent
@@ -207,7 +218,10 @@ def run():
     #   display      - set to False to disable the GUI if PyGame is enabled
     #   log_metrics  - set to True to log trial and simulation results to /logs
     #   optimized    - set to True to change the default log file name
-    sim = Simulator(env, update_delay=0.01, log_metrics=True)
+
+    #   agent_color  - overrides the car color when rendering
+    sim = Simulator(env, update_delay=0, display=True,
+                    log_metrics=True, optimized=True, agent_color='black')
 
     ##############
     # Run the simulator
