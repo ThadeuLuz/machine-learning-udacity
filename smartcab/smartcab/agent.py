@@ -5,6 +5,19 @@ from planner import RoutePlanner
 from simulator import Simulator
 
 
+def optimal_policy(state):
+    light, waypoint, left = state
+    action = None
+
+    if light == 'green':
+        action = waypoint
+
+    if waypoint == 'right' and left != 'forward':
+        action = waypoint
+
+    return action
+
+
 class LearningAgent(Agent):
     """ An agent that learns to drive in the Smartcab world.
         This is the object you will be modifying. """
@@ -47,7 +60,7 @@ class LearningAgent(Agent):
         # This kinda works
         # self.epsilon = self.epsilon - 0.005
 
-        self.epsilon = 0.99**self.trial
+        self.epsilon = 0.97**self.trial
 
         # Update additional class parameters as needed
         # If 'testing' is True, set epsilon and alpha to 0
@@ -80,8 +93,7 @@ class LearningAgent(Agent):
         # entirely negated.
 
         # Set 'state' as a tuple of relevant data for the agent
-        state = (waypoint, inputs["light"], inputs["left"], inputs["right"],
-                 inputs["oncoming"])
+        state = (inputs["light"], waypoint, inputs["left"])
 
         return state
 
@@ -220,7 +232,7 @@ def run():
     #   optimized    - set to True to change the default log file name
 
     #   agent_color  - overrides the car color when rendering
-    sim = Simulator(env, update_delay=0, display=True,
+    sim = Simulator(env, update_delay=0, display=False,
                     log_metrics=True, optimized=True, agent_color='black')
 
     ##############
