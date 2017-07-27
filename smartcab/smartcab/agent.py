@@ -7,10 +7,12 @@ from simulator import Simulator
 
 def optimal_policy(state):
     light, waypoint, left = state
-    action = None
 
     if light == 'green':
-        action = waypoint
+        if waypoint == 'left' and (oncoming == 'right' or oncoming == 'forward'):
+            action = None
+        else:
+            action = waypoint
 
     if waypoint == 'right' and left != 'forward':
         action = waypoint
@@ -54,13 +56,11 @@ class LearningAgent(Agent):
         ###########
         # Update epsilon using a decay function of your choice
 
-        # The decay rate for this is too steep
-        # self.epsilon = 1. / (self.trial**2)
+        # Not optimized
+        # self.epsilon = self.epsilon - 0.05
 
-        # This kinda works
-        # self.epsilon = self.epsilon - 0.005
-
-        self.epsilon = 0.97**self.trial
+        # Optimizes
+        self.epsilon = 0.98**self.trial
 
         # Update additional class parameters as needed
         # If 'testing' is True, set epsilon and alpha to 0
@@ -93,7 +93,7 @@ class LearningAgent(Agent):
         # entirely negated.
 
         # Set 'state' as a tuple of relevant data for the agent
-        state = (inputs["light"], waypoint, inputs["left"])
+        state = (inputs["light"], waypoint, inputs["left"], inputs["oncoming"])
 
         return state
 
