@@ -11,6 +11,3 @@ We can also simplify by calling W and x vectors W = (w1, w2) and  x = (x1, x2), 
 > Wx + b = 0
 
 Each training point has a label y that can be 0 or 1 that we are trying to predict. ŷ is the prediction. So 
-
- 
-
