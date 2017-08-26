@@ -90,3 +90,24 @@ If we are trying to calculate the cross entropy for multiple clasess, the formul
 $$ \text{Cross Entropy} = - \sum_{i=1}^n \sum_{j=1}^m y_{ij} ln(p_{ij}) $$
 
 This works because $y_{ij}$ being 0 or 1 cancels the values of events that did not occur.
+
+### Error Function
+
+The only thing we have to do to get our final error function is to divide the Cross Entropy by the number of points. Also, our formula is calculated on the prediction ($\hat y$) instead of ($p$), the formula is:
+
+$$ 
+\text{Error Function} = - \frac 1 m \sum_{i=1}^m (1-y_i)(ln(1-  {\hat y}_i)) + y_iln({\hat y}_i) 
+$$
+
+To put the formula in terms of W and b:
+
+$$ 
+E(W, b) = - \frac 1 m \sum_{i=1}^m (1-y_i)(ln(1 -  \sigma(Wx^{(i)} + b))) + y_iln(\sigma(Wx^{(i)} + b))
+$$
+
+This is the formula for a binary classification problem. The formula for a multi-class classification formula in terms of W and b is:
+
+$$ 
+\text{Cross Entropy} = - \sum_{i=1}^n \sum_{j=1}^m y_{ij} ln(\sigma(Wx^{(ij)} + b)))
+$$
+
