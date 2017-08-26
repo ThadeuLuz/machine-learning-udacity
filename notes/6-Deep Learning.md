@@ -21,8 +21,6 @@ $$
 \end{cases}
 $$
 
-Perceptrons can be used for logical operations OR or AND on two inputs. It also can be used to more complex operations like Xor with two layers.
-### Perceptron trick algorithm
 
 1. Start with random weights
 1. For every misclassified point:
@@ -42,4 +40,45 @@ and the new continuous prediction is
 $$ \hat y = \sigma(Wx + b)$$
 
 which will return the chance of the lable being true
+
+### Softmax
+
+When we have a classification problem, the solution would be to apply a softmax function. For *Z1, ..., Zn* being the scores of the function, the softmax function is:
+
+$$\hat y = \frac {e ^{Zi}} {e^{Z1} + ... + e^{Zn}}$$
+
+### Maximum Likelihood
+
+Maximum likelihood is the method of detecting the efficiency of a model by multiplying the probability of each event having the label it has. So for example:
+
+A good model has a high Maximum Likelihood
+$$ 0.7 * 0.9 * 0.8 * 0.6 = 0.3024$$ 
+
+A bad model has a low Maximum Likelihood
+$$ 0.6 * 0.2 * 0.1 * 0.7 = 0.0084$$ 
+
+Our goal is to maximize the Maximum Likelihood.
+
+### Cross Entropy
+
+Instead of multiplying the probabilities of all points, it would be better to add them, and avoid getting stuck with very small numbers. Remember logs are just the inverse operations to exponential:
+
+$$log_e(x) = y  \text{ as }  x = e^y$$
+
+Since logs of numbers bellow 1 are negative, we can make them negative to end up with a positive number. For example, the cross entropy of the example above would be
+
+A GOOD model has a LOW Cross Entropy
+$$ -ln(0.7) - ln(0.9) - ln(0.8) - ln(0.6) = 1.2 $$ 
+
+A BAD model has a HIGH Cross Entropy
+$$ -ln(0.6) - ln(0.2) - ln(0.1) - ln(0.7) = 4.8 $$ 
+
+Our goal is to minimize the Cross Entropy.
+
+
+
+
+
+
+
 
