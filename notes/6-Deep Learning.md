@@ -65,6 +65,10 @@ Instead of multiplying the probabilities of all points, it would be better to ad
 
 $$log_e(x) = y  \text{ as }  x = e^y$$
 
+Natural logs are just logs of *e*, which is a constant (2.71828...):
+
+$$ log_{2.71828...}(x) = log_e(x) = ln(x)$$
+
 Since logs of numbers bellow 1 are negative, we can make them negative to end up with a positive number. For example, the cross entropy of the example above would be
 
 A GOOD model has a LOW Cross Entropy
@@ -75,10 +79,14 @@ $$ -ln(0.6) - ln(0.2) - ln(0.1) - ln(0.7) = 4.8 $$
 
 Our goal is to minimize the Cross Entropy.
 
+The final formula for cross entropy also encompasses the fact that we sould invert the probability of a label being positive if the outcome was negative. The formula is:
 
+$$ \text{Cross Entropy} = - \sum_{i=1}^m y_iln(p_i) + (1-y_i)ln(1-p_i) $$
 
+### Multi Class Cross Entropy
 
+If we are trying to calculate the cross entropy for multiple clasess, the formula is:
 
+$$ \text{Cross Entropy} = - \sum_{i=1}^n \sum_{j=1}^m y_{ij} ln(p_{ij}) $$
 
-
-
+This works because $y_{ij}$ being 0 or 1 cancels the values of events that did not occur.
