@@ -156,3 +156,10 @@ Pseudocode for gradient descent:
 ### Deep Neural Networks
 
 The word 'Deep' comes to neural networks when we add layers of perceptrons other then the ones directly connected to the input. These subsequent layers will have the outputs of the first layer as inputs, and they allow for more complex models. When we have classification problems we can add one node for each class on the output, and their values (after a softmax function) will correspond to the probability of each class being of that label.
+
+### Training Neural Networks
+
+Feedforward is the process neural networks use to turn the input into an output. The formula is
+
+$$\hat y = \sigma W^{(2)} \circ \sigma \circ W^{(1)}(x)$$
+
