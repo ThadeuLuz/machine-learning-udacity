@@ -142,6 +142,17 @@ $$
 \nabla E (W, b) = (y - \hat y)(x_1, ..., x_n, 1)
 $$
 
+### Gradient Descent
+
+Pseudocode for gradient descent:
+
+1. Start with random weights: $(w_1, ..., w_n, b)$
+1. For every point $(x_1, ..., x_n)$:
+    1. For $i = 1 ... n$
+        1. Update $w'_i \longleftarrow w_i - \alpha (y- \hat y)x_i$ 
+        1. Update $b' \longleftarrow b - \alpha (y- \hat y)$ 
 
 
+### Deep Neural Networks
 
+The word 'Deep' comes to neural networks when we add layers of perceptrons other then the ones directly connected to the input. These subsequent layers will have the outputs of the first layer as inputs, and they allow for more complex models. When we have classification problems we can add one node for each class on the output, and their values (after a softmax function) will correspond to the probability of each class being of that label.
