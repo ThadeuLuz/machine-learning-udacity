@@ -111,3 +111,37 @@ $$
 \text{Cross Entropy} = - \sum_{i=1}^n \sum_{j=1}^m y_{ij} ln(\sigma(Wx^{(ij)} + b)))
 $$
 
+### Minimizing errors
+
+The first thing to do is to calculate the derivative of the error function.
+
+$$
+\sigma'(x) = \sigma(x)(1 - \sigma(x))
+$$
+
+Our goal is to calculate the gradient of $E$, at point $x = (x_1, ..., x_n)$, given by the parcial derivatives
+
+$$
+\nabla E = \begin{pmatrix}
+  \frac \partial {\partial_{w1}} E, 
+  ...,
+  \frac \partial {\partial_{wn}} E, 
+  \frac \partial {\partial_{b}} E
+\end{pmatrix}
+$$
+
+To calculate $\frac \partial {\partial_{wj} } E$, we end up with:
+
+$$
+\frac \partial {\partial_{b} } E = \frac 1 m \sum^m_{i=1}(y_i - \hat y_i)
+$$
+
+This means that for a point with coordinates $(x_1, ..., x_n)$, label $y$, and prediction $\hat y$, the gradient of the error function at that point is $((y - \hat y)x_1, ..., (y - \hat y)x_n, (y - \hat y))$. In summary:
+
+$$
+\nabla E (W, b) = (y - \hat y)(x_1, ..., x_n, 1)
+$$
+
+
+
+
