@@ -26,10 +26,10 @@ $$
 1. For every misclassified point:
   1. If prediction = 0:
     For i = 1 ...n
-      change wi + xi * a (add the value of Xi times the learning rate)
+      change $w_i$ to $w_i + x_i\alpha$: add the value of $x_i$ times the learning rate
   2. If prediction = 1:
     For i = 1 ...n
-      change wi - xi * a (subtract the value of Xi times the learning rate)
+      change $w_i$ to $w_i - x_i\alpha$: subtract the value of $x_i$ times the learning rate
     
 We can also change the Activation function from a discreet step function (that returns only 0 or 1) to a continuous sigmoid function (that returns any number between 0 and 1). The sigmoid formula is:
 
@@ -162,4 +162,9 @@ The word 'Deep' comes to neural networks when we add layers of perceptrons other
 Feedforward is the process neural networks use to turn the input into an output. The formula is
 
 $$\hat y = \sigma W^{(2)} \circ \sigma \circ W^{(1)}(x)$$
+
+
+
+
+
 
