@@ -152,10 +152,16 @@ Pseudocode for gradient descent:
         1. Update $w'_i \longleftarrow w_i - \alpha (y- \hat y)x_i$ 
         1. Update $b' \longleftarrow b - \alpha (y- \hat y)$ 
 
+It is important to notice that using $(y- \hat y)$ makes it clear that only the misclassified points will have it's weight changed. If the label ($y$) and prediction ($\hat y$) are the same, result of the subtraction will be 0 and the weight will not be changed. If they are not equal, the value could be from 1 to -1, on the correct direction and proportional value to the distance of the weights. Brilliant!
 
 ### Deep Neural Networks
 
 The word 'Deep' comes to neural networks when we add layers of perceptrons other then the ones directly connected to the input. These subsequent layers will have the outputs of the first layer as inputs, and they allow for more complex models. When we have classification problems we can add one node for each class on the output, and their values (after a softmax function) will correspond to the probability of each class being of that label.
+
+
+### Notes on classification problems
+
+On classification problems, the simple solution is to create an output layer that has as many nodes as the number of labels on the dataset. After that, just get the score for each label and apply a softmax function to get the probability of each label being correct.
 
 ### Training Neural Networks
 
@@ -163,7 +169,7 @@ Feedforward is the process neural networks use to turn the input into an output.
 
 $$\hat y = \sigma W^{(2)} \circ \sigma \circ W^{(1)}(x)$$
 
-
+### Backpropagation
 
 
 
