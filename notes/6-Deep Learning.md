@@ -171,6 +171,9 @@ $$\hat y = \sigma W^{(2)} \circ \sigma \circ W^{(1)}(x)$$
 
 ### Backpropagation
 
+The idea of back propagation is very simple: first we have to calculate the errors and update weights on deeper layers to then move to layers closer to the input.
 
+### Chain Rule
 
+The Chain rule simply states that when composing functions, the derivative simply multiply.
 
