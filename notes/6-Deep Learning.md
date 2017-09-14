@@ -177,23 +177,48 @@ The idea of back propagation is very simple: first we have to calculate the erro
 
 The Chain rule simply states that when composing functions, the derivative simply multiply.
 
-### Optimizations
+## Optimizations
 
-#### Batch vs Stochastic Gradient Descent
+### Batch vs Stochastic Gradient Descent
 
 Batch gradient descent is using every single data point to get the error and update the weights through backpropagation. If we have too many data points, that can really take up lots of computing power. If the data is well distributed, a small subset can give us a good idea of what the gradient is. This is Stochastic gradient descent: we simply take a subsample of the datasets, calculate the gradient based on those points and move one step in that direction. We still want to use all of our data, so we split the data in batches. We run each batch through the NN to get the error and gradient and update the weights.
 
-#### Early stopping
+### Early stopping
 
 With each epoch you train your neural network you are decreasing the chance of underfitting and increasing the chances of overfitting. Early stopping is simply the process of checking the results of the trained model with a test set and stop training once it's error starts increasing.
 
-#### Dropout
+### Dropout
 
 Dropout is a way to speed up the training process of neural networks by shutting down a percentage of nodes in the hidden layers at each epoch.
 
-#### Vanishing Gradient
+### Vanishing Gradient
 
 If we calculate a derivative at a point too far to the right or left of the sigmoid function, we'll get a value that is pretty close to 0. This is even worse for NN with hiddel layers, because the derivative to a function in respect to a weight is the product of the derivatives at each step. This is not good because the derivative is what tells us in which direction to move.
 
-#### Change the 
+### Other activation functions
+
+One way around this problem is using other activation functions, such as
+
+#### Hyperbolic Tangent Function (tanh)
+
+This function is similar to sigmoid, but the range is between -1 and 1, so the tangents are larger.
+
+$$
+tahn(x) = \frac {e^x - e^{-x}} {e^x + e ^{-x}}
+$$
+
+#### Rectified Linear Unit (relu)
+
+This is a simple function that makes a simple check. If the value is negative, it returns 0, if not, returns the same number:
+
+$$
+relu(x) = \begin{cases}
+   x &\text{if } x \ge 0  \\
+   0 &\text{if } x < 0
+\end{cases}
+$$
+
+Remember that in case you are using regression, you still will neet to have a sigmoid function at the output node, since the prediction still needs to be between 0 and 1.
+
+
 
