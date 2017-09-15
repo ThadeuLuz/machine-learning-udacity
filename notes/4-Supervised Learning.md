@@ -1,5 +1,5 @@
 
-## Supervised learning Tasks
+# Supervised Learning Tasks
 
 Most of the content on this section was taken already from other courses, so I skipped most of it.
 
@@ -16,12 +16,14 @@ For parametric (biased) advantages
 - Lighter (no data needs to be stored)
 - Best for mathematically explainable data sets
 
+```
 For nonparametric (unbiased) advantages
 - No training
 - Can add new data easily
 - Good for chaotic data sets
+```
 
-## Decision trees
+### Decision trees
 
 Terms: 
 
@@ -35,39 +37,25 @@ Terms:
 
 Decision trees can represent boolean functions, like and OR function:
 
-<img src='http://g.gravizo.com/g?
- digraph G {
-   a [label="A"];
-   t1 [label="True" shape=box];
-   b [label="B"];
-   t2 [label="True" shape=box];
-   f1 [label="False" shape=box];
-   a -> t1 [label=true]
-   a -> b [label=false]
-   b -> t2 [label=true]
-   b -> f1 [label=false]
- }
-'/>
+```mermaid
+graph TD;
+    A((A)) -- true --> t1(True)
+    A -- false --> B((B))
+    B -- true --> t2(True)
+    B -- false --> f(False)
+```
 
 Or a XOR function 
 
-<img src='http://g.gravizo.com/g?
- digraph G {
-   a [label="A"];
-   b1 [label="B"];
-   b2 [label="B"];
-   t1 [label="True" shape=box];
-   t2 [label="True" shape=box];
-   f1 [label="False" shape=box];
-   f2 [label="False" shape=box];
-   a -> b1 [label=true]
-   a -> b2 [label=false]
-   b1 -> f1 [label=true]
-   b1 -> t1 [label=false]
-   b2 -> t2 [label=true]
-   b2 -> f2 [label=false]
- }
-'/>
+```mermaid
+graph TD;
+    A((A)) -- true --> B1((B))
+    A -- false --> B2((B))
+    B1 -- true --> F1(False)
+    B1 -- false --> T1(True)
+    B2 -- true --> T2(True)
+    B2 -- false --> F2(False)
+```
 
 The first tree grows linearly to the number of options. The second grows exponentially.
 
@@ -79,17 +67,24 @@ ID3 is a top down learning algorithm that maximizes for entropy (uncertainty) to
 
 ANN are made up of perceptrons. They look like this:
 
-![Perceptron](https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/ArtificialNeuronModel_english.png/600px-ArtificialNeuronModel_english.png)
+```mermaid
+graph LR;
+    X1 -- W1 --> P((Activation Function))
+    ... -- ... --> P
+    Xn -- Wn --> P
+    B --> P
+    P --> Output
+```
 
-`W` are the weights multiplying inputs. `θ` is the treshold for the output.
+`W` are the weights multiplying inputs, `B` is the bias.
 
 There are two different rules to figure out weights from examples: 
 
 ### Perceptron Rule 
-Perceptron Rule  makes use of thresholded output. First it gets rid of the treshold (or better said, it always uses a threshold of 0) by modifying the weights account for it. To train the weights based on examples it basically loops throught the weights and compares the acual value to the value of the examples, then nudges the weight to the right direction by multiplying it to a *learning rate* variable. 
+Perceptron Rule  makes use of thresholded output. To train the weights based on examples it basically loops throught the weights and compares the acual value to the value of the examples, then nudges the weight to the right direction using a *learning rate* variable. 
 
 ### Gradient descent/Delta rule 
-Gradient descent makes use of unthresholded output. It is more robust to addres non linear-separability. It looks a lot like the perceptron rule, but instead of thesholding to figure out only the direction a weight should move, it moves by a factor of the error.
+Gradient descent makes use of unthresholded output. It is more robust to addres non linear-separability. It looks a lot like the perceptron rule, but instead of thesholding to figure out only the direction a weight should move, it gets a value between 0 and 1 to also know how strong the nudge should be.
 
 Usually the initial weights are small randomized values, to start simple and avoid getting stuck at the same local minimum multiple times when training different models.
 
@@ -110,11 +105,10 @@ Nearest neightbors algorithms is the simplest non-parametric model. You just sto
 
 Bayes Rule:
 
-![](http://www.gaussianwaves.com/gaussianwaves/wp-content/uploads/2013/10/Bayes_theorem_1.png)
-
+$$
+P(A|B) = \frac {P(B|A)P(A)} {P(B)}
+$$
 
 ## Ensemble of Learners
 
 Bagging is just generating regression polynomials from different subsets of data (randomly picked) and averaging out the results. It's remarkable that the results seem to do better than deriving an equation from the entire set (possibly because it avoids overfitting).
-
-## Supervised Learning Project
