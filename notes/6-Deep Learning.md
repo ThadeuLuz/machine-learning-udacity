@@ -230,3 +230,10 @@ This idea is pretty simple, just randomize weights and restart the process. Ther
 
 Momentum is the idea of weighting previous steps to give a momentum and help getting over minor 'humps'. The only param, a $\beta$ between 0 and 1. The current step is multiplied by 1, the previous by $\beta ^2$, the one before by $\beta ^3$, then $\beta ^4$ and so forth. The steps that happened a long time ago will have a very small impact, while the current ones will matter the most.
 
+# Convolutional Neural Networks
+
+## Applications
+
+[Wavenet](https://github.com/ibab/tensorflow-wavenet) uses CNN. Althoguh RNNs are used for NLP, CNNs can be used too. Facebook uses CNN for machine translation. AlphaGO was built on CNN.
+
+## MLPs for Image Classification
